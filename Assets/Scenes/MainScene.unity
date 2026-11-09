@@ -204,8 +204,8 @@ Transform:
   m_GameObject: {fileID: 119330519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.4, z: 0}
-  m_LocalScale: {x: 1.0774, y: 1.0866, z: 1}
+  m_LocalPosition: {x: -0.1, y: -0.11, z: 0}
+  m_LocalScale: {x: 1.0246073, y: 1.0333565, z: 0.951}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -218,9 +218,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1194331984102528, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_Name
       value: Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618772364417044, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4503217429184534, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_LocalScale.x
@@ -240,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4503217429184534, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 4503217429184534, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -280,32 +288,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 416506121}
-    - targetCorrespondingSourceObject: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 416506123}
-    - targetCorrespondingSourceObject: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 416506122}
+    - targetCorrespondingSourceObject: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 416506125}
   m_SourcePrefab: {fileID: 100100000, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
 --- !u!1 &416506120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
   m_PrefabInstance: {fileID: 416506119}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416506121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416506120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e011ab20bd5cd496895fa561a10e2e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpaceshipScript
-  force: 10
 --- !u!50 &416506122
 Rigidbody2D:
   serializedVersion: 5
@@ -333,7 +325,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &416506123
+--- !u!114 &416506125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e011ab20bd5cd496895fa561a10e2e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpaceshipScript
+  Bullet: {fileID: 1084890406425518, guid: cc37bc98d98663343a34aa2a097f4150, type: 3}
   force: 30
 --- !u!1 &519420028
 GameObject:
