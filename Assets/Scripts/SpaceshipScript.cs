@@ -16,13 +16,11 @@ public class SpaceshipScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
-
     public void InstantiateBullet()
     {
         GameObject NewBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
         CanShoot = false;
-        Debug.Log("Hola");
+        
         StartCoroutine(EnableShoot()); //Se tiene que llamar a la corutina con un start
     }
 
