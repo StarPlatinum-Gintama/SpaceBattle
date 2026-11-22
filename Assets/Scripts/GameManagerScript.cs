@@ -1,10 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject controller;
     [SerializeField] GameObject enemies;
+    [SerializeField] GameObject spaceship;
+    [SerializeField] GameObject gameOver;
     Rigidbody2D rbEnemy;
 
     bool CanSpawn = true;
@@ -26,6 +30,7 @@ public class GameManagerScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         rbEnemy = enemies.GetComponent<Rigidbody2D>();
     }
 
@@ -35,7 +40,20 @@ public class GameManagerScript : MonoBehaviour
         {
             InstantiateEnemy();
         }
-    }
 
+        if (Time.timeScale == 0f)
+        {
+            spaceship.SetActive(false);
+            gameOver.SetActive(true);
+
+        }
+
+    }
+   
+    public void StartNewGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
 
 }

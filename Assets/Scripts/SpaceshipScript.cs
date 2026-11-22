@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpaceshipScript : MonoBehaviour
 {
-    [SerializeField]GameObject Bullet; 
+    [SerializeField] GameObject Bullet;
     [SerializeField] float force = 10f;
     Rigidbody2D rb;
     float horizontal;
@@ -16,17 +16,21 @@ public class SpaceshipScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void InstantiateBullet()
+    public GameObject GetNewBullet()
     {
-        GameObject NewBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+        return Instantiate(Bullet, transform.position, Quaternion.identity);
+    }
+
+    public void InstantiateBullet(GameObject NewBullet)
+    {
         CanShoot = false;
-        
+
         StartCoroutine(EnableShoot()); //Se tiene que llamar a la corutina con un start
     }
 
     IEnumerator EnableShoot()
     {
-        Debug.Log("voy a esperar 1s");
+        //Debug.Log("voy a esperar 1s");
         yield return new WaitForSeconds(1f);
         Debug.Log("ya puedes disparar");
         CanShoot = true;
@@ -36,7 +40,7 @@ public class SpaceshipScript : MonoBehaviour
     {
         if (Input.GetKey("space") && CanShoot)
         {
-            InstantiateBullet();
+            InstantiateBullet(GetNewBullet());
         }
     }
 
@@ -44,16 +48,16 @@ public class SpaceshipScript : MonoBehaviour
     {
         // Movimiento de la nave horizontal
         horizontal = Input.GetAxis("Horizontal");
-        rb.AddForce (Vector3.right * horizontal * force);
+        rb.AddForce(Vector3.right * horizontal * force);
 
         //Límite de la pantalla
         float pos = Mathf.Clamp(transform.position.x, -7f, 7f);
-        transform.position = new Vector3 (pos, transform.position.y, transform.position.z);
+        transform.position = new Vector3(pos, transform.position.y, transform.position.z);
 
-        if (transform.position.x <= -7f || transform.position.x >= 7f) 
-        { 
-            rb.linearVelocityX = 0f; 
+        if (transform.position.x <= -7f || transform.position.x >= 7f)
+        {
+            rb.linearVelocityX = 0f;
         }
     }
- 
+
 }

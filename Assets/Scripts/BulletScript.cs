@@ -15,11 +15,21 @@ public class Bala : MonoBehaviour
     {
         //Almacenamos el RigidBody de las balas en una variable y la inicializamos
         rb = bullet.GetComponent<Rigidbody2D>();
+        bullet.SetActive(true);
     }
     void FixedUpdate()
     {
-        //Le aplicamos una fuerza al Rigidbody2D hacia arriba para q vaya volando 
-        rb.AddForce(Vector2.up * speed); 
+        //Le aplicamos una fuerza al Rigidbody2D hacia arriba para q vaya volando     
+        rb.AddForce(Vector2.up * speed);
+
+    }
+
+    private void Update()
+    {
+        if (Time.timeScale == 0f)
+        {
+            bullet.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D (Collider2D collision)
@@ -34,6 +44,8 @@ public class Bala : MonoBehaviour
         {
             //Si colisiona con un enemigo, se destruye el enemigo
             Destroy (collision.gameObject);
+            Destroy(gameObject);
         }
+
     }
 }

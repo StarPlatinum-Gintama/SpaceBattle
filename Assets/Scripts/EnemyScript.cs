@@ -1,11 +1,11 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour
 {
     Rigidbody2D rbEnemy;
     [SerializeField] GameObject enemy;
-    [SerializeField] GameObject spaceship;
-    [SerializeField] GameObject enemyBullet;
     [SerializeField] float enemySpeed = 5;
 
     void Start()
@@ -15,18 +15,24 @@ public class EnemyScript : MonoBehaviour
 
     void FixedUpdate()
     {
+       
         rbEnemy.AddForce (Vector2.down * enemySpeed);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ColliderBottom")
         {
-            Destroy(gameObject);
-            Debug.Log("Game Over");
+           
+            Destroy(enemy);
+            Time.timeScale = 0f; //Pauso el tiempo para que se pare el juego 
+        }
 
-            //Me gustaria destruir la nave y mostrar un texto q diga game over, igual con otra escena 
+        if (collision.gameObject.tag == "Spaceship")
+        {
 
+            Destroy(enemy);
+            Time.timeScale = 0f; //Pauso el tiempo para que se pare el juego 
         }
     }
+
 }

@@ -10,6 +10,7 @@ TagManager:
   - ColliderBottom
   - ColliderTop
   - EnemyBullet
+  - GameOverTXT
   layers:
   - Default
   - TransparentFX
